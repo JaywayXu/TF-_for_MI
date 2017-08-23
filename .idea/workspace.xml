@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81360965-c925-4f40-b30e-464e0b6ddb9b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,7 +36,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Chapter 5 - 01 Overview-checkpoint.ipynb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Chapter 5 - 01 Overview-checkpoint.ipynb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/.ipynb_checkpoints/Chapter 5 - 01 Overview-checkpoint.ipynb">
           <provider selected="true" editor-type-id="ipnb-editor">
             <state>
@@ -45,7 +45,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Chapter 5 - 05 CNN Implementation.ipynb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Chapter 5 - 05 CNN Implementation.ipynb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/Chapter 5 - 05 CNN Implementation.ipynb">
           <provider selected="true" editor-type-id="ipnb-editor">
             <state>
@@ -122,29 +122,6 @@
               <item name="TF-_for_MI" type="b2602c69:ProjectViewProjectNode" />
               <item name="TF-_for_MI" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="TF-_for_MI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TF-_for_MI" type="462c0819:PsiDirectoryNode" />
-              <item name="chapters" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TF-_for_MI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TF-_for_MI" type="462c0819:PsiDirectoryNode" />
-              <item name="chapters" type="462c0819:PsiDirectoryNode" />
-              <item name="02_installation" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TF-_for_MI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TF-_for_MI" type="462c0819:PsiDirectoryNode" />
-              <item name="chapters" type="462c0819:PsiDirectoryNode" />
-              <item name="03_tensorflow_fundamentals" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TF-_for_MI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TF-_for_MI" type="462c0819:PsiDirectoryNode" />
-              <item name="chapters" type="462c0819:PsiDirectoryNode" />
-              <item name="05_object_recognition_and_classification" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -210,8 +187,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="287" y="0" width="1489" height="1035" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31280616" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32120365" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32951945" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296011" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -244,6 +222,65 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/.ipynb_checkpoints/Chapter 5 - 02 Convolutions-checkpoint.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/.ipynb_checkpoints/Chapter 5 - 01 Overview-checkpoint.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/Chapter 5 - 05 CNN Implementation.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/images/chapter-05-object-recognition-and-classification/cnn-implementation/network-architecture.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/Chapter 5 - 01 Overview.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/images/chapter-05-object-recognition-and-classification/cnn-implementation/network-architecture.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/.ipynb_checkpoints/Chapter 5 - 02 Convolutions-checkpoint.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/Chapter 5 - 05 CNN Implementation.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/.ipynb_checkpoints/Chapter 5 - 01 Overview-checkpoint.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/images/chapter-05-object-recognition-and-classification/cnn-implementation/network-architecture.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -296,17 +333,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/Chapter 5 - 05 CNN Implementation.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/Chapter 5 - 01 Overview.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
           <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/Chapter 5 - 05 CNN Implementation.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="15" />
         </state>
       </provider>
     </entry>
