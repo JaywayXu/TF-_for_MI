@@ -1,20 +1,24 @@
 # Logistic regression example in TF using Kaggle's Titanic Dataset.
 # Download train.csv from https://www.kaggle.com/c/titanic/data
+# 该模型用于依据乘客的年龄,性别和船票的等级推断她或她是否可以幸存下来
 
 import tensorflow as tf
 import os
 
 # same params and variables initialization as log reg.
+# 与对数几率回归相同的参数和变量初始化
 W = tf.Variable(tf.zeros([5, 1]), name="weights")
 b = tf.Variable(0., name="bias")
 
 
 # former inference is now used for combining inputs
+# 之前的推断用于值的合并
 def combine_inputs(X):
     return tf.matmul(X, W) + b
 
 
 # new inferred value is the sigmoid applied to the former
+# 新的推断值是将sigmoid函数运用到前面的合并值的输出
 def inference(X):
     return tf.sigmoid(combine_inputs(X))
 
@@ -22,10 +26,12 @@ def inference(X):
 def loss(X, Y):
     return tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(combine_inputs(X), Y))
 
-
+# 编写读取文件的基本代码.
+# 可以加载和解析 ,并创建一个批次来读取排列在张量中的多行数据
 def read_csv(batch_size, file_name, record_defaults):
     filename_queue = tf.train.string_input_producer([os.path.join(os.getcwd(), file_name)])
-
+    # os.getcwd()显示python当前工作路径
+    # os.path.join连接目录和(文件名或目录)
     reader = tf.TextLineReader(skip_header_lines=1)
     key, value = reader.read(filename_queue)
 
@@ -69,7 +75,7 @@ def evaluate(sess, X, Y):
 
     predicted = tf.cast(inference(X) > 0.5, tf.float32)
 
-    print sess.run(tf.reduce_mean(tf.cast(tf.equal(predicted, Y), tf.float32)))
+    print (sess.run(tf.reduce_mean(tf.cast(tf.equal(predicted, Y), tf.float32))))
 
 # Launch the graph in a session, setup boilerplate
 with tf.Session() as sess:
@@ -90,7 +96,7 @@ with tf.Session() as sess:
         sess.run([train_op])
         # for debugging and learning purposes, see how the loss gets decremented thru training steps
         if step % 10 == 0:
-            print "loss: ", sess.run([total_loss])
+            print ("loss: ", sess.run([total_loss]))
 
     evaluate(sess, X, Y)
 
