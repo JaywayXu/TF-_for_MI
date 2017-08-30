@@ -50,6 +50,7 @@ def read_csv(batch_size, file_name, record_defaults):
     return tf.train.shuffle_batch(decoded,
                                   batch_size=batch_size,
                                   capacity=batch_size*50,
+                                  num_threads=6,
                                   min_after_dequeue=batch_size)
 
 
