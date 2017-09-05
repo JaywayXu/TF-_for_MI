@@ -23,7 +23,8 @@ with tf.Session() as sess:
     print(sess.run(tf.shape(kernel)))
     # [1 1 1 2]
     print(sess.run(conv2d))
-    # [[[[0.   0.]
+    # [
+    # [[[0.   0.]
     #    [1.   2.]]
     #
     #  [[2.   4.]
@@ -43,3 +44,5 @@ with tf.Session() as sess:
     输出层与输入层在最内的像素点级别有差异"""
     print(sess.run(input_batch)[0][1][1])  # 表示输入图中右下角的像素点
     print(sess.run(conv2d)[0][1][1])  # 表示输出图中右下角的像素点
+    # [ 3.]
+    # [3.   6.]
