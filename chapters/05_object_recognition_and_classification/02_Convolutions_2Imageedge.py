@@ -53,7 +53,31 @@ activation_map = sess.run(tf.minimum(tf.nn.relu(conv2d), 255))
 
 pyplot.imshow(activation_map[0])
 # 保存当前图片
-fig.savefig("./images/chapter-05-object-recognition-and-classification/convolution/example-edge-detection0.png")
+fig.savefig("./images/chapter-05-object-recognition-and-classification/convolution/example-edge-detection.png")
+ath_kernel = tf.constant([
+    [
+        [[0., 0., 0.], [0., 0., 0.], [0., 0., 0.]],
+        [[-1., 0., 0.], [0., -1., 0.], [0., 0., -1.]],
+        [[0., 0., 0.], [0., 0., 0.], [0., 0., 0.]]
+    ],
+    [
+        [[-1., 0., 0.], [0., -1., 0.], [0., 0., -1.]],
+        [[5., 0., 0.], [0., 5., 0.], [0., 0., 5.]],
+        [[-1., 0., 0.], [0., -1., 0.], [0., 0., -1.]]
+    ],
+    [
+        [[0., 0., 0.], [0., 0., 0.], [0., 0., 0.]],
+        [[-1., 0., 0.], [0., -1., 0.], [0., 0., -1.]],
+        [[0, 0., 0.], [0., 0., 0.], [0., 0., 0.]]
+    ]
+])
+
+ath_conv2d = tf.nn.conv2d(image_batch, ath_kernel, [1, 1, 1, 1], padding="SAME")
+activation_map = sess.run(tf.minimum(tf.nn.relu(ath_conv2d), 255))
+fig = pyplot.gcf()
+pyplot.imshow(activation_map[0])
+fig.set_size_inches(4, 4)
+fig.savefig("./images/chapter-05-object-recognition-and-classification/convolution/example-sharpen.png")
 coord.request_stop()  # 关闭线程控制器
 coord.join(threads)  # 关闭线程
 sess.close()  # 关闭回话
