@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81360965-c925-4f40-b30e-464e0b6ddb9b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chapters/05_object_recognition_and_classification/03_Layers_max_pool.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chapters/05_object_recognition_and_classification/03_tf_contrib_layers_convolution2d.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/chapters/05_object_recognition_and_classification/03_Layers.py" afterPath="$PROJECT_DIR$/chapters/05_object_recognition_and_classification/03_Layers_avg_pool.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/chapters/05_object_recognition_and_classification/04_Working_with_Images.py" afterPath="$PROJECT_DIR$/chapters/05_object_recognition_and_classification/03_tf_contrib_layer_fully_connected.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/chapters/05_object_recognition_and_classification/05_CNN_Implementation.py" afterPath="$PROJECT_DIR$/chapters/05_object_recognition_and_classification/04_Loadpicture.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/chapters/05_object_recognition_and_classification/06_Conclusion_and_Next_Steps.py" afterPath="$PROJECT_DIR$/chapters/05_object_recognition_and_classification/04_TFRecord.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,15 +17,18 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/TF__for_MI$TF__for_MI.coverage" NAME="TF-_for_MI Coverage Results" MODIFIED="1502450290571" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/TF__for_MI$ceshi.coverage" NAME="ceshi Coverage Results" MODIFIED="1504012189074" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chapters/04_machine_learning_basics" />
     <SUITE FILE_PATH="coverage/TF__for_MI$02_Convolutions_2.coverage" NAME="02_Convolutions_2 Coverage Results" MODIFIED="1504598352539" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chapters/05_object_recognition_and_classification" />
+    <SUITE FILE_PATH="coverage/TF__for_MI$03_HighLevelLayers.coverage" NAME="03_HighLevelLayers Coverage Results" MODIFIED="1504780666676" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chapters/05_object_recognition_and_classification/output" />
+    <SUITE FILE_PATH="coverage/TF__for_MI$01_Overview.coverage" NAME="01_Overview Coverage Results" MODIFIED="1504095370314" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chapters/05_object_recognition_and_classification" />
+    <SUITE FILE_PATH="coverage/TF__for_MI$ceshi.coverage" NAME="ceshi Coverage Results" MODIFIED="1504012189074" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chapters/04_machine_learning_basics" />
+    <SUITE FILE_PATH="coverage/TF__for_MI$03_tf_contrib_layer_fully_connected.coverage" NAME="03_tf_contrib_layer_fully_connected Coverage Results" MODIFIED="1504783400970" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chapters/05_object_recognition_and_classification" />
     <SUITE FILE_PATH="coverage/TF__for_MI$linear_regression.coverage" NAME="linear_regression Coverage Results" MODIFIED="1503636703914" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chapters/04_machine_learning_basics" />
     <SUITE FILE_PATH="coverage/TF__for_MI$02_Convolution_3.coverage" NAME="02_Convolution_3 Coverage Results" MODIFIED="1504594463169" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chapters/05_object_recognition_and_classification" />
-    <SUITE FILE_PATH="coverage/TF__for_MI$01_Overview.coverage" NAME="01_Overview Coverage Results" MODIFIED="1504095370314" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chapters/05_object_recognition_and_classification" />
     <SUITE FILE_PATH="coverage/TF__for_MI$02_Convolutions_2Imageedge.coverage" NAME="02_Convolutions_2Imageedge Coverage Results" MODIFIED="1504672880888" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chapters/05_object_recognition_and_classification" />
     <SUITE FILE_PATH="coverage/TF__for_MI$softmax.coverage" NAME="softmax Coverage Results" MODIFIED="1504061461317" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chapters/04_machine_learning_basics" />
     <SUITE FILE_PATH="coverage/TF__for_MI$03_Layers_max_pool.coverage" NAME="03_Layers_max_pool Coverage Results" MODIFIED="1504685905406" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chapters/05_object_recognition_and_classification" />
     <SUITE FILE_PATH="coverage/TF__for_MI$logistic_regression.coverage" NAME="logistic_regression Coverage Results" MODIFIED="1504012980167" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chapters/04_machine_learning_basics" />
+    <SUITE FILE_PATH="coverage/TF__for_MI$04_Loadpicture.coverage" NAME="04_Loadpicture Coverage Results" MODIFIED="1504784804934" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chapters/05_object_recognition_and_classification" />
     <SUITE FILE_PATH="coverage/TF__for_MI$02_Convolutions.coverage" NAME="02_Convolutions Coverage Results" MODIFIED="1504572842957" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chapters/05_object_recognition_and_classification" />
     <SUITE FILE_PATH="coverage/TF__for_MI$03_Layers_avg_pool.coverage" NAME="03_Layers_avg_pool Coverage Results" MODIFIED="1504683114556" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chapters/05_object_recognition_and_classification" />
   </component>
@@ -40,21 +45,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="03_Layers_avg_pool.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/03_Layers_avg_pool.py">
+      <file leaf-file-name="03_tf_contrib_layer_fully_connected.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/03_tf_contrib_layer_fully_connected.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="19" column="37" lean-forward="false" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
+            <state relative-caret-position="230">
+              <caret line="10" column="12" lean-forward="false" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="03_Layers_max_pool.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/03_Layers_max_pool.py">
+      <file leaf-file-name="04_Loadpicture.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/04_Loadpicture.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="15" column="27" lean-forward="false" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+            <state relative-caret-position="529">
+              <caret line="23" column="19" lean-forward="false" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="04_TFRecord.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/04_TFRecord.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="69">
+              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -104,9 +119,14 @@
         <option value="$PROJECT_DIR$/chapters/05_object_recognition_and_classification/Chapter 5 - 02 Convolutions_1.ipynb" />
         <option value="$PROJECT_DIR$/chapters/05_object_recognition_and_classification/02_Convolutions_2Imageedge.py" />
         <option value="$PROJECT_DIR$/chapters/05_object_recognition_and_classification/Chapter 5 - 02 Convolutions.ipynb" />
-        <option value="$PROJECT_DIR$/chapters/05_object_recognition_and_classification/Chapter 5 - 03 Layers.ipynb" />
         <option value="$PROJECT_DIR$/chapters/05_object_recognition_and_classification/03_Layers_avg_pool.py" />
         <option value="$PROJECT_DIR$/chapters/05_object_recognition_and_classification/03_Layers_max_pool.py" />
+        <option value="$PROJECT_DIR$/chapters/05_object_recognition_and_classification/output/03_HighLevelLayers.py" />
+        <option value="$PROJECT_DIR$/chapters/05_object_recognition_and_classification/Chapter 5 - 03 Layers.ipynb" />
+        <option value="$PROJECT_DIR$/chapters/05_object_recognition_and_classification/03_tf_contrib_layer_fully_connected.py" />
+        <option value="$PROJECT_DIR$/chapters/05_object_recognition_and_classification/Chapter 5 - 04 Working with Images.ipynb" />
+        <option value="$PROJECT_DIR$/chapters/05_object_recognition_and_classification/04_Loadpicture.py" />
+        <option value="$PROJECT_DIR$/chapters/05_object_recognition_and_classification/04_TFRecord.py" />
       </list>
     </option>
   </component>
@@ -116,11 +136,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="121" />
-    <option name="y" value="71" />
-    <option name="width" value="1774" />
-    <option name="height" value="1100" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="332" />
+    <option name="y" value="128" />
+    <option name="width" value="1767" />
+    <option name="height" value="1091" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -140,7 +160,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -167,6 +186,37 @@
             </path>
             <path>
               <item name="TF-_for_MI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TF-_for_MI" type="462c0819:PsiDirectoryNode" />
+              <item name="chapters" type="462c0819:PsiDirectoryNode" />
+              <item name="05_object_recognition_and_classification" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TF-_for_MI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TF-_for_MI" type="462c0819:PsiDirectoryNode" />
+              <item name="chapters" type="462c0819:PsiDirectoryNode" />
+              <item name="05_object_recognition_and_classification" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="chapter-05-object-recognition-and-classification" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TF-_for_MI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TF-_for_MI" type="462c0819:PsiDirectoryNode" />
+              <item name="chapters" type="462c0819:PsiDirectoryNode" />
+              <item name="05_object_recognition_and_classification" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="chapter-05-object-recognition-and-classification" type="462c0819:PsiDirectoryNode" />
+              <item name="working-with-images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TF-_for_MI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TF-_for_MI" type="462c0819:PsiDirectoryNode" />
+              <item name="chapters" type="462c0819:PsiDirectoryNode" />
+              <item name="05_object_recognition_and_classification" type="462c0819:PsiDirectoryNode" />
+              <item name="output" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TF-_for_MI" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
@@ -174,11 +224,12 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TFAPI_translation" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -199,57 +250,21 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.03_Layers_max_pool">
-    <configuration name="02_Convolution_3" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.04_Loadpicture">
+    <configuration name="03_HighLevelLayers" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/chapters/05_object_recognition_and_classification" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/chapters/05_object_recognition_and_classification/output" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="TF-_for_MI" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/chapters/05_object_recognition_and_classification/02_Convolution_3.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
-    <configuration name="02_Convolutions_2" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/chapters/05_object_recognition_and_classification" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="TF-_for_MI" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="F:\Git\TF-_for_MI\chapters\05_object_recognition_and_classification\02_Convolutions_2Imageedge.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
-    <configuration name="02_Convolutions_2Imageedge" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/chapters/05_object_recognition_and_classification" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="TF-_for_MI" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/chapters/05_object_recognition_and_classification/02_Convolutions_2Imageedge.py" />
+      <option name="SCRIPT_NAME" value="F:\Git\TF-_for_MI\chapters\05_object_recognition_and_classification\03_tf_contrib_layers_convolution2d.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -290,6 +305,42 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
+    <configuration name="03_tf_contrib_layer_fully_connected" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/chapters/05_object_recognition_and_classification" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="TF-_for_MI" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/chapters/05_object_recognition_and_classification/03_tf_contrib_layer_fully_connected.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <configuration name="04_Loadpicture" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/chapters/05_object_recognition_and_classification" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="TF-_for_MI" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/chapters/05_object_recognition_and_classification/04_Loadpicture.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
     <configuration name="TF-_for_MI" type="Python.Ipnb" factoryName="Jupyter Notebook">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -309,19 +360,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Jupyter Notebook.TF-_for_MI" />
-      <item index="1" class="java.lang.String" itemvalue="Python.02_Convolutions_2" />
-      <item index="2" class="java.lang.String" itemvalue="Python.02_Convolution_3" />
-      <item index="3" class="java.lang.String" itemvalue="Python.02_Convolutions_2Imageedge" />
-      <item index="4" class="java.lang.String" itemvalue="Python.03_Layers_max_pool" />
-      <item index="5" class="java.lang.String" itemvalue="Python.03_Layers_avg_pool" />
+      <item index="1" class="java.lang.String" itemvalue="Python.03_Layers_max_pool" />
+      <item index="2" class="java.lang.String" itemvalue="Python.03_Layers_avg_pool" />
+      <item index="3" class="java.lang.String" itemvalue="Python.03_HighLevelLayers" />
+      <item index="4" class="java.lang.String" itemvalue="Python.03_tf_contrib_layer_fully_connected" />
+      <item index="5" class="java.lang.String" itemvalue="Python.04_Loadpicture" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.03_Layers_max_pool" />
-        <item index="1" class="java.lang.String" itemvalue="Python.03_Layers_avg_pool" />
-        <item index="2" class="java.lang.String" itemvalue="Python.02_Convolutions_2Imageedge" />
-        <item index="3" class="java.lang.String" itemvalue="Python.02_Convolutions_2" />
-        <item index="4" class="java.lang.String" itemvalue="Python.02_Convolution_3" />
+        <item index="0" class="java.lang.String" itemvalue="Python.04_Loadpicture" />
+        <item index="1" class="java.lang.String" itemvalue="Python.03_tf_contrib_layer_fully_connected" />
+        <item index="2" class="java.lang.String" itemvalue="Python.03_HighLevelLayers" />
+        <item index="3" class="java.lang.String" itemvalue="Python.03_Layers_max_pool" />
+        <item index="4" class="java.lang.String" itemvalue="Python.03_Layers_avg_pool" />
       </list>
     </recent_temporary>
   </component>
@@ -351,16 +402,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="121" y="71" width="1774" height="1100" extended-state="1" />
+    <frame x="332" y="128" width="1767" height="1091" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30513418" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2817809" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32951945" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296011" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32951945" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32849163" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32951945" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5798883" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.77956986" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32951945" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -375,6 +426,28 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295711" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32951945" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32849163" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32951945" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1821229" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32951945" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28198293" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296011" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295711" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296011" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -389,48 +462,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/.ipynb_checkpoints/Chapter 5 - 01 Overview-checkpoint.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/.ipynb_checkpoints/Chapter 5 - 02 Convolutions-checkpoint.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/.ipynb_checkpoints/Chapter 5 - 01 Overview-checkpoint.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/.ipynb_checkpoints/Chapter 5 - 01 Overview-checkpoint.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/Chapter 5 - 05 CNN Implementation.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/.ipynb_checkpoints/Chapter 5 - 02 Convolutions-checkpoint.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/images/chapter-05-object-recognition-and-classification/cnn-implementation/network-architecture.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -615,13 +646,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chapters/04_machine_learning_basics/softmax.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="790">
-          <caret line="118" column="16" lean-forward="false" selection-start-line="116" selection-start-column="3" selection-end-line="118" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/Chapter 5 - 02 Convolutions.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
@@ -629,25 +653,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/Chapter 5 - 03 Layers.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/03_Layers_avg_pool.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
+        <state relative-caret-position="0">
           <caret line="19" column="37" lean-forward="false" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/03_tf_contrib_layers_convolution2d.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="12" column="40" lean-forward="false" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/Chapter 5 - 03 Layers.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/images/chapter-05-object-recognition-and-classification/working-with-images/test-input-image.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/03_Layers_max_pool.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="15" column="27" lean-forward="false" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+        <state relative-caret-position="291">
+          <caret line="25" column="26" lean-forward="true" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chapters/04_machine_learning_basics/softmax.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="98" column="19" lean-forward="true" selection-start-line="98" selection-start-column="19" selection-end-line="98" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/Chapter 5 - 04 Working with Images.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/03_tf_contrib_layer_fully_connected.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="12" lean-forward="false" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/04_Loadpicture.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="23" column="19" lean-forward="false" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chapters/05_object_recognition_and_classification/04_TFRecord.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
