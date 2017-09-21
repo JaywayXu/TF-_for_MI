@@ -1,7 +1,7 @@
 """转换图像数据格式时需要将它们的颜色空间变为灰度空间,将图像尺寸修改为同一尺寸,并将标签依附于每幅图像"""
 import tensorflow as tf
 
-sess = tf.InteractiveSession()
+sess = tf.Session()
 import glob
 
 image_filenames = glob.glob("./imagenet-dogs/n02*/*.jpg")  # 访问imagenet-dogs文件夹中所有n02开头的子文件夹中所有的jpg文件
@@ -41,8 +41,8 @@ for dog_breed, breed_images in groupby(image_filename_with_breed, lambda x: x[0]
             testing_dataset[dog_breed].append(breed_image[1])
         else:
             training_dataset[dog_breed].append(breed_image[1])
-        #  表示其中五分之一加入测试集其余进入训练集
-        #  并且以狗的类别名称进行区分,向同一类型中添加图片
+            #  表示其中五分之一加入测试集其余进入训练集
+            #  并且以狗的类别名称进行区分,向同一类型中添加图片
     # Check that each breed includes at least 18% of the images for testing
     breed_training_count = len(training_dataset[dog_breed])
     breed_testing_count = len(testing_dataset[dog_breed])
@@ -92,6 +92,7 @@ def write_records_file(dataset, record_location):
 
             # In ImageNet dogs, there are a few images which TensorFlow doesn't recognize as JPEGs. This
             # try/catch will ignore those images.
+            # 在ImageNet的狗的图像中,有少量无法被Tensorflow识别为JPEG的图像,利用try/catch可将这些图像忽略
             try:
                 image = tf.image.decode_jpeg(image_file)
             except:
@@ -99,16 +100,19 @@ def write_records_file(dataset, record_location):
                 continue
 
             # Converting to grayscale saves processing and memory but isn't required.
+            # 将其转化为灰度图片的类型,虽然这并不是必需的,但是可以减少计算量和内存占用,
             grayscale_image = tf.image.rgb_to_grayscale(image)
-            resized_image = tf.image.resize_images(grayscale_image, [250, 151])
+            resized_image = tf.image.resize_images(grayscale_image, (250, 151))  # 并将图片修改为长250宽151的图片类型
 
             # tf.cast is used here because the resized images are floats but haven't been converted into
             # image floats where an RGB value is between [0,1).
+            # 这里之所以使用tf.cast,是因为 尺寸更改后的图像的数据类型是浮点数,但是RGB值尚未转换到[0,1)的区间之内
             image_bytes = sess.run(tf.cast(resized_image, tf.uint8)).tobytes()
 
             # Instead of using the label as a string, it'd be more efficient to turn it into either an
             # integer index or a one-hot encoded rank one tensor.
             # https://en.wikipedia.org/wiki/One-hot
+            # 将标签按照字符串存储较为高效,推荐的做法是将其转换成整数索引或独热编码的秩1张量
             image_label = breed.encode("utf-8")
 
             example = tf.train.Example(features=tf.train.Features(feature={
@@ -116,17 +120,19 @@ def write_records_file(dataset, record_location):
                 'image': tf.train.Feature(bytes_list=tf.train.BytesList(value=[image_bytes]))
             }))
 
-            writer.write(example.SerializeToString())
+            writer.write(example.SerializeToString())  # 将其序列化为二进制字符串
     writer.close()
 
 
 write_records_file(testing_dataset, "./output/testing-images/testing-image")
 write_records_file(training_dataset, "./output/training-images/training-image")
-filename_queue = tf.train.string_input_producer(
-    tf.train.match_filenames_once("./output/training-images/*.tfrecords"))
+filename_queue = tf.train.string_input_producer(tf.train.match_filenames_once("./output/training-images/*.tfrecords"))
+#  生成文件名队列
 reader = tf.TFRecordReader()
 _, serialized = reader.read(filename_queue)
+#  通过阅读器读取value值并将其保存为serialized
 
+# 模板化的代码,将label和image分开
 features = tf.parse_single_example(
     serialized,
     features={
@@ -135,64 +141,83 @@ features = tf.parse_single_example(
     })
 
 record_image = tf.decode_raw(features['image'], tf.uint8)
+#  tf.decode_raw()函数将字符串的字节重新解释为一个数字的向量
 
 # Changing the image into this shape helps train and visualize the output by converting it to
 # be organized like an image.
+# 修改图像的形状有助于训练和输出的可视化
 image = tf.reshape(record_image, [250, 151, 1])
 
 label = tf.cast(features['label'], tf.string)
 
-min_after_dequeue = 10
-batch_size = 3
-capacity = min_after_dequeue + 3*batch_size
+min_after_dequeue = 10  # 当一次出列操作完成后,队列中元素的最小数量,往往用于定义元素的混合级别.
+batch_size = 3  # 批处理大小
+capacity = min_after_dequeue + 3*batch_size  # 批处理容量
 image_batch, label_batch = tf.train.shuffle_batch(
-    [image, label], batch_size=batch_size, capacity=capacity, min_after_dequeue=min_after_dequeue)
+    [image, label], batch_size=batch_size, capacity=capacity, min_after_dequeue=min_after_dequeue, num_threads=4)
+# 通过随机打乱的方式创建数据批次
+
+
 # Converting the images to a float of [0,1) to match the expected input to convolution2d
+# 将图像转换为灰度值位于[0, 1)的浮点类型,以与convlution2d期望的输入匹配
 float_image_batch = tf.image.convert_image_dtype(image_batch, tf.float32)
+
+#  第一个卷积层
 
 conv2d_layer_one = tf.contrib.layers.conv2d(
     float_image_batch,
-    num_outputs=32,  # The number of filters to generate
-    kernel_size=(5, 5),  # It's only the filter height and width.
+    num_outputs=32,  # 生成的滤波器的数量
+    kernel_size=(5, 5),  # 滤波器的高度和宽度
     activation_fn=tf.nn.relu,
-    weights_initializer=tf.random_normal_initializer,
-    stride=(2, 2),
+    weights_initializer=tf.random_normal_initializer,  # 设置weight的值是正态分布的随机值
+    stride=(2, 2),  # 对image_batch和imput_channels的跨度值
     trainable=True)
+# shape(3, 125, 76,32)
+# 3表示批处理数据量是3,
+# 125和76表示经过卷积操作后的宽和高,这和滤波器的大小还有步长有关系
+
+#  第一个混合/池化层,输出降采样
 
 pool_layer_one = tf.nn.max_pool(conv2d_layer_one,
                                 ksize=[1, 2, 2, 1],
                                 strides=[1, 2, 2, 1],
                                 padding='SAME')
+# shape(3, 63,38,32)
+# 混合层ksize,1表示选取一个批处理数据,2表示在宽的维度取2个单位,2表示在高的取两个单位,1表示选取一个滤波器也就数选择一个通道进行操作.
+# strides步长表示其分别在四个维度上的跨度
 
 # Note, the first and last dimension of the convolution output hasn't changed but the
 # middle two dimensions have.
-conv2d_layer_one.get_shape(), pool_layer_one.get_shape()
+# 注意卷积输出的第一个维度和最后一个维度没有发生变化,但是中间的两个维度发生了变化
+
+
+# 第二个卷积层
 
 conv2d_layer_two = tf.contrib.layers.conv2d(
     pool_layer_one,
-    num_outputs=64,  # More output channels means an increase in the number of filters
+    num_outputs=64,  # 更多输出通道意味着滤波器数量的增加
     kernel_size=(5, 5),
     activation_fn=tf.nn.relu,
     weights_initializer=tf.random_normal_initializer,
     stride=(1, 1),
     trainable=True)
-
+# shape(3, 63,38,64)
 pool_layer_two = tf.nn.max_pool(conv2d_layer_two,
                                 ksize=[1, 2, 2, 1],
                                 strides=[1, 2, 2, 1],
                                 padding='SAME')
-
-conv2d_layer_two.get_shape(), pool_layer_two.get_shape()
+# shape(3, 32, 19,64)
+# 由于后面要使用softmax,因此全连接层需要修改为二阶张量,张量的第1维用于区分每幅图像,第二维用于对们每个输入张量的秩1张量
 flattened_layer_two = tf.reshape(
     pool_layer_two,
     [
-        batch_size,  # Each image in the image_batch
-        -1  # Every other dimension of the input
+        batch_size,  # image_batch中的每幅图像
+        -1  # 输入的其他所有维度
     ])
+# 例如,如果此时一批次有三个数据的时候,则每一行就是一个数据行,然后每一列就是这个图片的数据,
+# 这里的-1参数将最后一个池化层调整为一个巨大的秩1张量
 
-flattened_layer_two.get_shape()
-# The weight_init parameter can also accept a callable, a lambda is used here  returning a truncated normal
-# with a stddev specified.
+# 全连接层1
 hidden_layer_three = tf.contrib.layers.fully_connected(
     flattened_layer_two,
     512,
@@ -200,14 +225,17 @@ hidden_layer_three = tf.contrib.layers.fully_connected(
     activation_fn=tf.nn.relu
 )
 
-# Dropout some of the neurons, reducing their importance in the model
+# 对一些神经元进行dropout操作.每个神经元以0.1的概率决定是否放电
 hidden_layer_three = tf.nn.dropout(hidden_layer_three, 0.1)
+
 
 # The output of this are all the connections between the previous layers and the 120 different dog breeds
 # available to train on.
+# 输出是前面的层与训练中可用的120个不同品种的狗的品种的全连接
+# 全连接层2
 final_fully_connected = tf.contrib.layers.fully_connected(
     hidden_layer_three,
-    120,  # Number of dog breeds in the ImageNet Dogs dataset
+    120,  # ImageNet Dogs 数据集中狗的品种数
     weights_initializer=tf.truncated_normal_initializer(stddev=0.1)
 )
 import glob

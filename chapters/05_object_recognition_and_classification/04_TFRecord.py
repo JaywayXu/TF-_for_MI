@@ -102,10 +102,10 @@ class FixedLenFeature(collections.namedtuple(
 # 但是在实际使用的过程中这里的features的是根据原先的保存时的名字对应的,而数据类型可以自行选取.
 
 # Using tf.uint8 because all of the channel information is between 0-255
-# 使用tf.uint8类型,因为所有的通道信息都处于0~255的范围内
+# 使用tf.uit8类型,因为所有的通道信息都处于0~255的范围内
 tf_record_image = tf.decode_raw(
     tf_record_features['image'], tf.uint8)
-# tf.decode_raw()函数将将字符串的字节重新解释为一个数字的向量。
+# tf.decode_raw()函数将字符串的字节重新解释为一个数字的向量。
 
 # Reshape the image to look like the image saved, not required
 # 调整图像的尺寸,使其与保存的图像类似,但这并不是必需的
