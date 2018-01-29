@@ -49,83 +49,83 @@ for dog_breed, breed_images in groupby(image_filename_with_breed, lambda x: x[0]
     # 现在,每个字典就按照下列格式包含了所有的Chihuahua图像
     # training_dataset["n02085620-Chihuahua"] = ['./imagenet-dogs\\n02085620-Chihuahua\\n02085620_10131.jpg', ...]
 
-#
-# def write_records_file(dataset, record_location):
-#     """
-#     Fill a TFRecords file with the images found in `dataset` and include their category.
-#     用dataset中的图像填充一个TFRecord文件,并将其类别包含进来
-#     Parameters
-#     参数
-#     ----------
-#     dataset : dict(list)
-#       Dictionary with each key being a label for the list of image filenames of its value.
-#       这个字典的键对应于其值中文件名列表对应的标签
-#     record_location : str
-#       Location to store the TFRecord output.
-#       存储TFRecord输出的路径
-#     """
-#     writer = None
-#
-#     # Enumerating the dataset because the current index is used to breakup the files if they get over 100
-#     # images to avoid a slowdown in writing.
-#     # 枚举dataset,因为当前索引用于对文件进行划分,每个100幅图像,训练样本的信息就被写入到一个新的TFRecord文件中,以加快写操作的速度
-#     current_index = 0
-#     for breed, images_filenames in dataset.items():
-#         # print(breed)   n02085620-Chihuahua...
-#         # print(image_filenames)   ['./imagenet-dogs\\n02085620-Chihuahua\\n02085620_10074.jpg', ...]
-#         for image_filename in images_filenames:
-#             if current_index%100 == 0:  # 如果记录了100个文件的话,write就关闭
-#                 if writer:
-#                     writer.close()
-#                 # 否则开始记录write文件
-#                 # record_Location表示当前的目录
-#                 # current_index初始值为0,随着文件记录逐渐增加
-#                 record_filename = "{record_location}-{current_index}.tfrecords".format(
-#                     record_location=record_location,
-#                     current_index=current_index)
-#                 # format是格式化字符串操作,通过format(){}函数将文件名保存到record_filename中
-#
-#                 writer = tf.python_io.TFRecordWriter(record_filename)
-#             current_index += 1
-#
-#             image_file = tf.read_file(image_filename)
-#
-#             # In ImageNet dogs, there are a few images which TensorFlow doesn't recognize as JPEGs. This
-#             # try/catch will ignore those images.
-#             # 在ImageNet的狗的图像中,有少量无法被Tensorflow识别为JPEG的图像,利用try/catch可将这些图像忽略
-#             try:
-#                 image = tf.image.decode_jpeg(image_file)
-#             except:
-#                 print(image_filename)
-#                 continue
-#
-#             # Converting to grayscale saves processing and memory but isn't required.
-#             # 将其转化为灰度图片的类型,虽然这并不是必需的,但是可以减少计算量和内存占用,
-#             grayscale_image = tf.image.rgb_to_grayscale(image)
-#             resized_image = tf.image.resize_images(grayscale_image, (250, 151))  # 并将图片修改为长250宽151的图片类型
-#
-#             # tf.cast is used here because the resized images are floats but haven't been converted into
-#             # image floats where an RGB value is between [0,1).
-#             # 这里之所以使用tf.cast,是因为 尺寸更改后的图像的数据类型是浮点数,但是RGB值尚未转换到[0,1)的区间之内
-#             image_bytes = sess.run(tf.cast(resized_image, tf.uint8)).tobytes()
-#
-#             # Instead of using the label as a string, it'd be more efficient to turn it into either an
-#             # integer index or a one-hot encoded rank one tensor.
-#             # https://en.wikipedia.org/wiki/One-hot
-#             # 将标签按照字符串存储较为高效,推荐的做法是将其转换成整数索引或独热编码的秩1张量
-#             image_label = breed.encode("utf-8")
-#
-#             example = tf.train.Example(features=tf.train.Features(feature={
-#                 'label': tf.train.Feature(bytes_list=tf.train.BytesList(value=[image_label])),
-#                 'image': tf.train.Feature(bytes_list=tf.train.BytesList(value=[image_bytes]))
-#             }))
-#
-#             writer.write(example.SerializeToString())  # 将其序列化为二进制字符串
-#     writer.close()
-#
-#
-# write_records_file(testing_dataset, "./output/testing-images/testing-image")
-# write_records_file(training_dataset, "./output/training-images/training-image")
+
+def write_records_file(dataset, record_location):
+    """
+    Fill a TFRecords file with the images found in `dataset` and include their category.
+    用dataset中的图像填充一个TFRecord文件,并将其类别包含进来
+    Parameters
+    参数
+    ----------
+    dataset : dict(list)
+      Dictionary with each key being a label for the list of image filenames of its value.
+      这个字典的键对应于其值中文件名列表对应的标签
+    record_location : str
+      Location to store the TFRecord output.
+      存储TFRecord输出的路径
+    """
+    writer = None
+
+    # Enumerating the dataset because the current index is used to breakup the files if they get over 100
+    # images to avoid a slowdown in writing.
+    # 枚举dataset,因为当前索引用于对文件进行划分,每个100幅图像,训练样本的信息就被写入到一个新的TFRecord文件中,以加快写操作的速度
+    current_index = 0
+    for breed, images_filenames in dataset.items():
+        # print(breed)   n02085620-Chihuahua...
+        # print(image_filenames)   ['./imagenet-dogs\\n02085620-Chihuahua\\n02085620_10074.jpg', ...]
+        for image_filename in images_filenames:
+            if current_index%100 == 0:  # 如果记录了100个文件的话,write就关闭
+                if writer:
+                    writer.close()
+                # 否则开始记录write文件
+                # record_Location表示当前的目录
+                # current_index初始值为0,随着文件记录逐渐增加
+                record_filename = "{record_location}-{current_index}.tfrecords".format(
+                    record_location=record_location,
+                    current_index=current_index)
+                # format是格式化字符串操作,通过format(){}函数将文件名保存到record_filename中
+
+                writer = tf.python_io.TFRecordWriter(record_filename)
+            current_index += 1
+
+            image_file = tf.read_file(image_filename)
+
+            # In ImageNet dogs, there are a few images which TensorFlow doesn't recognize as JPEGs. This
+            # try/catch will ignore those images.
+            # 在ImageNet的狗的图像中,有少量无法被Tensorflow识别为JPEG的图像,利用try/catch可将这些图像忽略
+            try:
+                image = tf.image.decode_jpeg(image_file)
+            except:
+                print(image_filename)
+                continue
+
+            # Converting to grayscale saves processing and memory but isn't required.
+            # 将其转化为灰度图片的类型,虽然这并不是必需的,但是可以减少计算量和内存占用,
+            grayscale_image = tf.image.rgb_to_grayscale(image)
+            resized_image = tf.image.resize_images(grayscale_image, (250, 151))  # 并将图片修改为长250宽151的图片类型
+
+            # tf.cast is used here because the resized images are floats but haven't been converted into
+            # image floats where an RGB value is between [0,1).
+            # 这里之所以使用tf.cast,是因为 尺寸更改后的图像的数据类型是浮点数,但是RGB值尚未转换到[0,1)的区间之内
+            image_bytes = sess.run(tf.cast(resized_image, tf.uint8)).tobytes()
+
+            # Instead of using the label as a string, it'd be more efficient to turn it into either an
+            # integer index or a one-hot encoded rank one tensor.
+            # https://en.wikipedia.org/wiki/One-hot
+            # 将标签按照字符串存储较为高效,推荐的做法是将其转换成整数索引或独热编码的秩1张量
+            image_label = breed.encode("utf-8")
+
+            example = tf.train.Example(features=tf.train.Features(feature={
+                'label': tf.train.Feature(bytes_list=tf.train.BytesList(value=[image_label])),
+                'image': tf.train.Feature(bytes_list=tf.train.BytesList(value=[image_bytes]))
+            }))
+
+            writer.write(example.SerializeToString())  # 将其序列化为二进制字符串
+    writer.close()
+
+
+write_records_file(testing_dataset, "./output/testing-images/testing-image")
+write_records_file(training_dataset, "./output/training-images/training-image")
 filename_queue = tf.train.string_input_producer(tf.train.match_filenames_once("./output/training-images/*.tfrecords"))
 #  生成文件名队列
 reader = tf.TFRecordReader()
@@ -276,7 +276,7 @@ coord = tf.train.Coordinator()
 threads = tf.train.start_queue_runners(sess=sess, coord=coord)
 
 # 训练
-training_steps = 1000
+training_steps = 100
 for step in range(training_steps):
     sess.run(optimizer)
 
