@@ -13,11 +13,10 @@ image_input = tf.constant([
 conv2d = tf.contrib.layers.convolution2d(
     image_input,
     num_outputs=4,
-    kernel_size=(1,1),          # 这里表示滤波器的高度和宽度
+    kernel_size=(1, 1),  # 这里表示滤波器的高度和宽度
     activation_fn=tf.nn.relu,
-    stride=(1, 1),              # 对image_batch和imput_channels的跨度值
+    stride=(1, 1),  # 对image_batch和imput_channels的跨度值
     trainable=True)
-
 
 # It's required to initialize the variables used in convolution2d's setup.
 

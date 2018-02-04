@@ -27,7 +27,7 @@ tf.expand_dims(input, dim, name = None)
 我们可以指定插入的位置dim，dim的索引从0开始，dim的值也可以是负数，从尾部开始插入，符合 python 的语法。
 这个操作是非常有用的。举个例子，如果你有一张图片，数据维度是[height, width, channels]，你想要加入“批量”这个信息，
 那么你可以这样操作expand_dims(images, 0)，那么该图片的维度就变成了[1, height, width, channels]。"""
-kernel = tf.constant([
+kernel_3 = tf.constant([
     [
         [[-1., 0., 0.], [0., -1., 0.], [0., 0., -1.]],
         [[-1., 0., 0.], [0., -1., 0.], [0., 0., -1.]],
@@ -44,10 +44,50 @@ kernel = tf.constant([
         [[-1., 0., 0.], [0., -1., 0.], [0., 0., -1.]]
     ]
 ])
-# kernel.shape(3, 3, 3, 3)
-conv2d = tf.nn.conv2d(image_batch, kernel, [1, 1, 1, 1], padding="SAME")
-print(sess.run(conv2d))
-activation_map = sess.run(tf.minimum(tf.nn.relu(conv2d), 255))
+# kernel_3.shape(3, 3, 3, 3)此时利用的是三个卷积核
+conv2d_3 = tf.nn.conv2d(image_batch, kernel_3, [1, 1, 1, 1], padding="SAME")
+print("The shape of image of conv2d_3 is ", sess.run(tf.shape(conv2d_3)))
+# 此时选择两个相同大小的卷积核
+kernel_2 = tf.constant([
+    [
+        [[-1., 0., 0.], [0., -1., 0.], [0., 0., -1.]],
+        [[-1., 0., 0.], [0., -1., 0.], [0., 0., -1.]],
+        [[-1., 0., 0.], [0., -1., 0.], [0., 0., -1.]]
+    ],
+    [
+        [[-1., 0., 0.], [0., -1., 0.], [0., 0., -1.]],
+        [[8., 0., 0.], [0., 8., 0.], [0., 0., 8.]],
+        [[-1., 0., 0.], [0., -1., 0.], [0., 0., -1.]]
+    ],
+])
+conv2d_2 = tf.nn.conv2d(image_batch, kernel_2, [1, 1, 1, 1], padding="SAME")
+print("The shape of image of conv2d_2 is ", sess.run(tf.shape(conv2d_2)))
+# 选择四个相同大小的卷积核
+kernel_4 = tf.constant([
+    [
+        [[-1., 0., 0.], [0., -1., 0.], [0., 0., -1.]],
+        [[-1., 0., 0.], [0., -1., 0.], [0., 0., -1.]],
+        [[-1., 0., 0.], [0., -1., 0.], [0., 0., -1.]]
+    ],
+    [
+        [[-1., 0., 0.], [0., -1., 0.], [0., 0., -1.]],
+        [[8., 0., 0.], [0., 8., 0.], [0., 0., 8.]],
+        [[-1., 0., 0.], [0., -1., 0.], [0., 0., -1.]]
+    ],
+    [
+        [[-1., 0., 0.], [0., -1., 0.], [0., 0., -1.]],
+        [[-1., 0., 0.], [0., -1., 0.], [0., 0., -1.]],
+        [[-1., 0., 0.], [0., -1., 0.], [0., 0., -1.]]
+    ],
+    [
+        [[-1., 0., 0.], [0., -1., 0.], [0., 0., -1.]],
+        [[8., 0., 0.], [0., 8., 0.], [0., 0., 8.]],
+        [[-1., 0., 0.], [0., -1., 0.], [0., 0., -1.]]
+    ]
+])
+conv2d_4 = tf.nn.conv2d(image_batch, kernel_4, [1, 1, 1, 1], padding="SAME")
+print("The shape of image of conv2d_4 is ", sess.run(tf.shape(conv2d_4)))
+activation_map = sess.run(tf.minimum(tf.nn.relu(conv2d_3), 255))
 # 调用tf.minimum和tf.nn.relu的目的是将卷积值保持存在RGB颜色值的合成范围在[0,255]内
 # relu函数x<0时值为0,x>0时可以有无穷大tf.minimum函数的支持广播模式,返回在x,y两个量中较小的值.
 

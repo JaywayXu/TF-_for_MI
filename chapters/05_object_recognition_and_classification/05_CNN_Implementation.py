@@ -6,7 +6,7 @@ import glob
 
 image_filenames = glob.glob("./imagenet-dogs/n02*/*.jpg")  # 访问imagenet-dogs文件夹中所有n02开头的子文件夹中所有的jpg文件
 
-# image_filenames[0:2]  此语句表示image_filenames文件中的从第0个编号到第2个编号的值
+# image_filenames[0:2]  此语句表示image_filenames文件中的从第0个编号到第1个编号的值
 # ['./imagenet-dogs\\n02085620-Chihuahua\\n02085620_10074.jpg',
 # './imagenet-dogs\\n02085620-Chihuahua\\n02085620_10131.jpg']
 # 此时image_filenames中保存的全部是类似于以上形式的值
@@ -16,13 +16,14 @@ image_filenames = glob.glob("./imagenet-dogs/n02*/*.jpg")  # 访问imagenet-dogs
 from itertools import groupby
 from collections import defaultdict
 
-training_dataset = defaultdict(list)
-testing_dataset = defaultdict(list)
+training_dataset = defaultdict(list)  # 构造训练集集合，将traing_dateset设置为一个list对象，可以向其中添加成员
+testing_dataset = defaultdict(list)  # 构造测试集集合，将testing_dateset设置为一个list对象，可以向其中添加成员
 
 # Split up the filename into its breed and corresponding filename. The breed is found by taking the directory name
 # 将文件名分解为品种和对应的文件名,品种对应于文件夹名称
 image_filename_with_breed = map(lambda filename: (filename.split("/")[1].split("\\")[1], filename), image_filenames)
-# 表示定义一个匿名函数lambda传入参数为filename,对filename以"/"为分隔符,然后取第二个值,并且返回filename.split("/")[1]和filename
+# 表示定义一个匿名函数lambda传入参数为filename,对filename以"/"为分隔符,然后取第二个值
+# 再利用"\\"作为分隔符取第二个值,并且返回操作结果和filename
 # 并且以image_filenames作为参数
 # ('n02086646-Blenheim_spaniel', './imagenet-dogs\\n02086646-Blenheim_spaniel\\n02086646_3739.jpg')
 
@@ -30,13 +31,12 @@ image_filename_with_breed = map(lambda filename: (filename.split("/")[1].split("
 # 依据品种(上述返回的元组的第0个分量对元素进行分组)
 for dog_breed, breed_images in groupby(image_filename_with_breed, lambda x: x[0]):
     # Enumerate each breed's image and send ~20% of the images to a testing set
-    # 美剧每个品种的图像,并将大致20%的图像划入测试集
+    # 每个品种的图像,并将大致20%的图像划入测试集
     # 此函数返回的dog_breed即是image_filename_with_breed[0]也就是文件夹的名字即是狗的类别
-    # breed_images则是一个迭代器是根据狗的类别进行分类的
+    # breed_images则是一个迭代器是根据狗的类别进行分类的循环遍历dog_breed,输出breed_images则可以获得该品种下所有狗的图片
     for i, breed_image in enumerate(breed_images):
-        #  breed_images此时是根据狗的种类进行分类的迭代器
-        #  返回的i表示品种的代表编号
-        #  返回的breed_image表示这个标号的种类下狗的图片
+        # breed_images表示当前狗的分类下的所有狗的图片，i表示当前遍历当前分类图片下的序号
+        # 例如：表示哈巴狗分类下的第一张图片，哈巴狗分类下的第二张图片。
         if i%5 == 0:
             testing_dataset[dog_breed].append(breed_image[1])
         else:
@@ -280,7 +280,7 @@ training_steps = 100
 for step in range(training_steps):
     sess.run(optimizer)
 
-    if step % 10 == 0:
+    if step%10 == 0:
         print("loss:", sess.run(loss))
 
 train_prediction = tf.nn.softmax(final_fully_connected)

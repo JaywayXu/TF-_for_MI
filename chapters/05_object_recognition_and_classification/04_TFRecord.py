@@ -69,7 +69,7 @@ tf_record_filename_queue = tf.train.string_input_producer(["./output/training-im
 
 # Notice the different record reader, this one is designed to work with TFRecord files which may
 # have more than one example in them.
-# 注意这个不同的记录读取其,它的设计意图是能够使用可能会包含多个样本的TFRecord文件
+# 注意这个不同的记录读取,它的设计意图是能够使用可能会包含多个样本的TFRecord文件
 tf_record_reader = tf.TFRecordReader()
 _, tf_record_serialized = tf_record_reader.read(tf_record_filename_queue)
 # 通过阅读器读取value值,并保存为tf_record_serialized
