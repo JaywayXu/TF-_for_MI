@@ -33,7 +33,9 @@ for dog_breed, breed_images in groupby(image_filename_with_breed, lambda x: x[0]
     # Enumerate each breed's image and send ~20% of the images to a testing set
     # 每个品种的图像,并将大致20%的图像划入测试集
     # 此函数返回的dog_breed即是image_filename_with_breed[0]也就是文件夹的名字即是狗的类别
-    # breed_images则是一个迭代器是根据狗的类别进行分类的循环遍历dog_breed,输出breed_images则可以获得该品种下所有狗的图片
+    # breed_images则是一个迭代器是根据狗的类别进行分类的循环遍历dog_breed,输出breed_images则可以获得该品种下所有狗的图片元组
+    # 但是groupby函数并不是将元组中狗的类别和狗的图片信息分开成两个数组，dog_breed中存储的是image_filename_with_breed[0],
+    # breed_image是按狗的类别分类的image_filename_with_breed,所以breed_image[0]是狗的类别，breed_image[1]是狗图片的名称
     for i, breed_image in enumerate(breed_images):
         # breed_images表示当前狗的分类下的所有狗的图片，i表示当前遍历当前分类图片下的序号
         # 例如：表示哈巴狗分类下的第一张图片，哈巴狗分类下的第二张图片。
@@ -43,9 +45,8 @@ for dog_breed, breed_images in groupby(image_filename_with_breed, lambda x: x[0]
             training_dataset[dog_breed].append(breed_image[1])
             #  表示其中五分之一加入测试集其余进入训练集
             #  并且以狗的类别名称进行区分,向同一类型中添加图片
-    # Check that each breed includes at least 18% of the images for testing
-    breed_training_count = len(training_dataset[dog_breed])
-    breed_testing_count = len(testing_dataset[dog_breed])
+            #  注意其中存储的并不是图片的信息，而是图片名称的信息。
+
     # 现在,每个字典就按照下列格式包含了所有的Chihuahua图像
     # training_dataset["n02085620-Chihuahua"] = ['./imagenet-dogs\\n02085620-Chihuahua\\n02085620_10131.jpg', ...]
 
@@ -124,8 +125,12 @@ def write_records_file(dataset, record_location):
     writer.close()
 
 
-write_records_file(testing_dataset, "./output/testing-images/testing-image")
-write_records_file(training_dataset, "./output/training-images/training-image")
+""" 使用write_records_file函数将testing_dataset和train_dataset 数据集写入tfrecords文件中"""
+# 如果已经存在了TFrecords文件我们可以把此处注释掉
+# write_records_file(testing_dataset, "./output/testing-images/testing-image")
+# write_records_file(training_dataset, "./output/training-images/training-image")
+
+# 读取Tfrecords文件
 filename_queue = tf.train.string_input_producer(tf.train.match_filenames_once("./output/training-images/*.tfrecords"))
 #  生成文件名队列
 reader = tf.TFRecordReader()
@@ -156,6 +161,8 @@ capacity = min_after_dequeue + 3*batch_size  # 批处理容量
 image_batch, label_batch = tf.train.shuffle_batch(
     [image, label], batch_size=batch_size, capacity=capacity, min_after_dequeue=min_after_dequeue, num_threads=4)
 # 通过随机打乱的方式创建数据批次
+# 其中图片取出后会通过reshape方式添加一维数据通道
+# 此处通过tf.train.shuffle_batch函数会添加一层batch_size数据。
 
 
 # Converting the images to a float of [0,1) to match the expected input to convolution2d
@@ -202,11 +209,17 @@ conv2d_layer_two = tf.contrib.layers.conv2d(
     stride=(1, 1),
     trainable=True)
 # shape(3, 63,38,64)
+
+
+# 第二个混合/池化层,输出降采样
 pool_layer_two = tf.nn.max_pool(conv2d_layer_two,
                                 ksize=[1, 2, 2, 1],
                                 strides=[1, 2, 2, 1],
                                 padding='SAME')
 # shape(3, 32, 19,64)
+
+
+# 光栅层，用于将所有数据光栅化，为全连接做准备
 # 由于后面要使用softmax,因此全连接层需要修改为二阶张量,张量的第1维用于区分每幅图像,第二维用于对们每个输入张量的秩1张量
 flattened_layer_two = tf.reshape(
     pool_layer_two,
@@ -214,8 +227,8 @@ flattened_layer_two = tf.reshape(
         batch_size,  # image_batch中的每幅图像
         -1  # 输入的其他所有维度
     ])
-# 例如,如果此时一批次有三个数据的时候,则每一行就是一个数据行,然后每一列就是这个图片的数据,
 # 这里的-1参数将最后一个池化层调整为一个巨大的秩1张量
+
 
 # 全连接层1
 hidden_layer_three = tf.contrib.layers.fully_connected(
@@ -225,6 +238,7 @@ hidden_layer_three = tf.contrib.layers.fully_connected(
     activation_fn=tf.nn.relu
 )
 
+# Dropout层
 # 对一些神经元进行dropout操作.每个神经元以0.1的概率决定是否放电
 hidden_layer_three = tf.nn.dropout(hidden_layer_three, 0.1)
 
@@ -238,6 +252,7 @@ final_fully_connected = tf.contrib.layers.fully_connected(
     weights_initializer=tf.truncated_normal_initializer(stddev=0.1)
 )
 
+# 定义指标和训练
 """
 由于每个标签都是字符串类型,tf.nn.softmax无法直接使用这些字符串,所以需要将这些字符创转换为独一无二的数字,
 这些操作都应该在数据预处理阶段进行
@@ -246,12 +261,15 @@ import glob
 
 # Find every directory name in the imagenet-dogs directory (n02085620-Chihuahua, ...)
 # 找到位于imagenet-dogs路径下的所有文件目录名
+# glob操作用于查找定位系统内文件，支持通配符，split用于选取文件名部分中标签
 labels = list(map(lambda c: c.split("/")[-1].split("\\")[1], glob.glob("./imagenet-dogs/*")))
 
 # Match every label from label_batch and return the index where they exist in the list of classes
 # 匹配每个来自label_batch的标签并返回它们在类别列表的索引
 # 将label_batch作为参数l传入到匿名函数中tf.map_fn函数总体来讲和python中map函数相似,map_fn主要是将定义的函数运用到后面集合中每个元素中
-train_labels = tf.map_fn(lambda l: tf.where(tf.equal(labels, l))[0, 0:1][0], label_batch, dtype=tf.int64)
+train_labels = tf.map_fn(lambda l: tf.where(tf.equal(labels, l)
+                                            )[0, 0:1][0], label_batch, dtype=tf.int64)
+# 关于这段代码
 
 # setup-only-ignore
 loss = tf.reduce_mean(

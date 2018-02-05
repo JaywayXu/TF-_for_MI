@@ -285,7 +285,7 @@ output will have shape [batch_size, x, y, z].
 The capacity argument controls the how long the prefetching is allowed to
 grow the queues.
 容量控制了预抓取操作对于增加队列长度操作的长度.
-For example:
+For example:-
 
 # Creates batches of 32 images and 32 labels.
 image_batch, label_batch = tf.train.shuffle_batch(
