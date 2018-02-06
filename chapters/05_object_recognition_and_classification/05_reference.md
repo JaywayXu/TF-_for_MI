@@ -51,7 +51,7 @@ default_factory
 ### defaultdict示例
 
 ```python
-使用list作为default_factory，可以很容易地将一系列键值对分组为一个列表字典：
+# 使用list作为default_factory，可以很容易地将一系列键值对分组为一个列表字典：
 >>>
 >>> s = [('yellow', 1), ('blue', 2), ('yellow', 3), ('blue', 4), ('red', 1)]
 >>> d = defaultdict(list)
@@ -352,6 +352,7 @@ sess.close()
 #      [3]]
 # z2==>[ 1 6 7 4]
 ```
+
 ## 标签的匹配
 ```
 train_labels = tf.map_fn(lambda l: tf.where(tf.equal(labels, l)
