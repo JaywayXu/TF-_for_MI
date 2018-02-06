@@ -268,8 +268,8 @@ labels = list(map(lambda c: c.split("/")[-1].split("\\")[1], glob.glob("./imagen
 # 匹配每个来自label_batch的标签并返回它们在类别列表的索引
 # 将label_batch作为参数l传入到匿名函数中tf.map_fn函数总体来讲和python中map函数相似,map_fn主要是将定义的函数运用到后面集合中每个元素中
 train_labels = tf.map_fn(lambda l: tf.where(tf.equal(labels, l)
-                                            )[0, 0:1][0], label_batch, dtype=tf.int64)
-# 关于这段代码
+                                            )[0][0], label_batch, dtype=tf.int64)
+# 关于这段代码，详见reference.md
 
 # setup-only-ignore
 loss = tf.reduce_mean(
