@@ -297,11 +297,12 @@ threads = tf.train.start_queue_runners(sess=sess, coord=coord)
 training_steps = 100
 for step in range(training_steps):
     sess.run(optimizer)
-
+    train_prediction = tf.nn.softmax(final_fully_connected)
     if step%10 == 0:
         print("loss:", sess.run(loss))
 
-train_prediction = tf.nn.softmax(final_fully_connected)
+# print("prediction", sess.run(train_prediction))
+# train_prediction = tf.nn.softmax(final_fully_connected)
 # setup-only-ignore
 filename_queue.close(cancel_pending_enqueues=True)
 coord.request_stop()
